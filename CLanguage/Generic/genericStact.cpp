@@ -115,7 +115,7 @@ void destroyStack(Stack *sPtr, size_t dataSize, void(*dataFree)(void *))
 {
 	if (sPtr == NULL) return;
 	if (sPtr->stack == NULL) return;
-	for (int i = 0; i < sPtr->size; i++) {
+	for (int i = 0; i < sPtr->top; i++) {
 		dataFree((char *)sPtr->stack + i * dataSize);
 	}
 	free(sPtr->stack);
